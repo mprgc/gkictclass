@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 ICT Timetable</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+    }
+    header {
+      background: linear-gradient(135deg, #d32f2f, #b71c1c);
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+    header p {
+      margin-top: 8px;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+    .card-header {
+      background: #212121;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .schedule {
+      padding: 20px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .row:last-child {
+      border-bottom: none;
+    }
+    .grade {
+      font-weight: bold;
+      font-size: 16px;
+      color: #d32f2f;
+    }
+    .time {
+      font-size: 14px;
+      color: #333;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
+    footer strong {
+      color: #4caf50;
+    }
+    @media (max-width: 600px) {
+  header h1 { font-size: 26px; }
+}
+@media (max-width: 900px) {
+  section[style*="grid-template-columns"] {
+    grid-template-columns: 1fr;
+  }
+}
+    }
+    .gbtn{padding:8px 14px;border-radius:20px;border:none;background:#e0e0e0;cursor:pointer;font-weight:600}
+  .gbtn.active{background:#d32f2f;color:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>2026 ICT Timetable</h1>
+  <p>සියලුම ආයතන සඳහා – එකම Web පිටුවක</p>
+</header>
+
+
+
+<!-- Intro + YouTube Section -->
+<section style="max-width:1200px;margin:30px auto;padding:0 15px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center;">
+  <!-- Left Info -->
+  <div style="background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+    <h2 style="margin-top:0;color:#d32f2f;">2026 ICT පන්තිය</h2>
+    <p style="line-height:1.7;color:#333;">
+      Grade 06 සිට Grade 11 දක්වා ICT විෂය සම්පූර්ණ syllabus එක
+      <strong>සරලව, practical ලෙස</strong> ආවරණය කරයි.
+    </p>
+    <ul style="padding-left:18px;color:#444;line-height:1.8;">
+      <li>O/L Exam oriented theory + revision</li>
+      <li>Multimedia, AI & practical sessions</li>
+      <li>LMS App, recorded videos & papers</li>
+      <li>Beginner සිට top rank level දක්වා</li>
+    </ul>
+  </div>
+
+  <!-- Right Video -->
+  <div style="position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.15);">
+    <iframe src="https://www.youtube.com/embed/ZisWtlEHwVQ" title="ICT Class Introduction" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Filters -->
+<section style="max-width:1200px;margin:20px auto;padding:0 15px;display:flex;gap:15px;flex-wrap:wrap;align-items:center;">
+  <select id="dayFilter" style="padding:10px 14px;border-radius:10px;border:1px solid #ccc;">
+    <option value="">දින සියල්ල</option>
+    <option value="සඳුදා">සඳුදා</option>
+    <option value="අඟහරුවාදා">අඟහරුවාදා</option>
+    <option value="බදාදා">බදාදා</option>
+    <option value="බ්‍රහස්පතින්දා">බ්‍රහස්පතින්දා</option>
+    <option value="සිකුරාදා">සිකුරාදා</option>
+    <option value="සෙනසුරාදා">සෙනසුරාදා</option>
+    <option value="ඉරිදා">ඉරිදා</option>
+  </select>
+
+  <div id="gradeFilters" style="display:flex;gap:10px;flex-wrap:wrap;">
+    <button class="gbtn" data-grade="">All</button>
+    <button class="gbtn" data-grade="Grade 06">06</button>
+    <button class="gbtn" data-grade="Grade 07">07</button>
+    <button class="gbtn" data-grade="Grade 08">08</button>
+    <button class="gbtn" data-grade="Grade 09">09</button>
+    <button class="gbtn" data-grade="Grade 10">10</button>
+    <button class="gbtn" data-grade="Grade 11">11</button>
+  </div>
+</section>
+
+<section class="container">
+
+  <!-- Institute 1 -->
+  <div class="card">
+    <div class="card-header">සිප්වන් – කොස්ගම</div>
+    <div class="schedule">
+      <div class="row"><span class="grade">Grade 06</span><span class="time">සඳුදා | 4.00 – 6.00</span></div>
+      <div class="row"><span class="grade">Grade 07</span><span class="time">2.00 – 4.00</span></div>
+      <div class="row"><span class="grade">Grade 08</span><span class="time">4.30 – 6.30</span></div>
+      <div class="row"><span class="grade">Grade 09</span><span class="time">6.00 – 8.00</span></div>
+      <div class="row"><span class="grade">Grade 10</span><span class="time">4.30 – 6.30</span></div>
+      <div class="row"><span class="grade">Grade 11</span><span class="time">6.30 – 8.30</span></div>
+    </div>
+  </div>
+
+  <!-- Institute 2 -->
+  <div class="card">
+    <div class="card-header">ඉරුසම – පදුක්ක</div>
+    <div class="schedule">
+      <div class="row"><span class="grade">Grade 06</span><span class="time">සඳුදා | 4.00 – 6.00</span></div>
+      <div class="row"><span class="grade">Grade 07</span><span class="time">3.30 – 5.30</span></div>
+      <div class="row"><span class="grade">Grade 08</span><span class="time">3.30 – 5.30</span></div>
+      <div class="row"><span class="grade">Grade 09</span><span class="time">4.00 – 6.00</span></div>
+      <div class="row"><span class="grade">Grade 10</span><span class="time">6.00 – 8.00</span></div>
+      <div class="row"><span class="grade">Grade 11</span><span class="time">5.30 – 7.30</span></div>
+    </div>
+  </div>
+
+  <!-- Institute 3 -->
+  <div class="card">
+    <div class="card-header">සිප්වන් – කොට්ටාව</div>
+    <div class="schedule">
+      <div class="row"><span class="grade">Grade 06</span><span class="time">8.30 – 10.30</span></div>
+      <div class="row"><span class="grade">Grade 07</span><span class="time">3.00 – 5.00</span></div>
+      <div class="row"><span class="grade">Grade 08</span><span class="time">1.00 – 3.00</span></div>
+      <div class="row"><span class="grade">Grade 09</span><span class="time">10.30 – 12.30</span></div>
+      <div class="row"><span class="grade">Grade 10</span><span class="time">5.30 – 7.30</span></div>
+      <div class="row"><span class="grade">Grade 11</span><span class="time">7.30 – 9.30</span></div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  WhatsApp 24x7 Support : <strong>071 327 6655</strong><br />
+  © 2026 ICT Class – All Rights Reserved
+</footer>
+
+<script>
+  const dayFilter = document.getElementById('dayFilter');
+  const gradeButtons = document.querySelectorAll('.gbtn');
+  const rows = document.querySelectorAll('.row');
+  let activeGrade = "";
+
+  dayFilter.addEventListener('change', filterRows);
+
+  gradeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      gradeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeGrade = btn.dataset.grade;
+      filterRows();
+    });
+  });
+
+  function filterRows() {
+    const day = dayFilter.value;
+    rows.forEach(row => {
+      const gradeText = row.querySelector('.grade').innerText;
+      const timeText = row.querySelector('.time').innerText;
+      let show = true;
+      if (day && !timeText.includes(day)) show = false;
+      if (activeGrade && gradeText !== activeGrade) show = false;
+      row.style.display = show ? 'flex' : 'none';
+    });
+  }
+</script>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/94713276655" target="_blank" style="position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;box-shadow:0 6px 15px rgba(0,0,0,0.3);z-index:999;">💬</a>
+
+</body>
+</html>
