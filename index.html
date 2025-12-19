@@ -5,95 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2026 ICT Timetable</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f2f2;
-    }
-    header {
-      background: linear-gradient(135deg, #d32f2f, #b71c1c);
-      color: #fff;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-    header p {
-      margin-top: 8px;
-      font-size: 16px;
-      opacity: 0.9;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 15px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-    }
-    .card-header {
-      background: #212121;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .schedule {
-      padding: 20px;
-    }
-    .row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
-    .row:last-child {
-      border-bottom: none;
-    }
-    .grade {
-      font-weight: bold;
-      font-size: 16px;
-      color: #d32f2f;
-    }
-    .time {
-      font-size: 14px;
-      color: #333;
-    }
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 40px;
-    }
-    footer strong {
-      color: #4caf50;
-    }
-    @media (max-width: 600px) {
-  header h1 { font-size: 26px; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f2f2f2;
 }
+header {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
+header h1 { margin: 0; font-size: 32px; }
+header p { margin-top: 8px; font-size: 16px; opacity: 0.9; }
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.card-header {
+  background: #212121;
+  color: #fff;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+}
+.schedule { padding: 16px; }
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.grade { font-weight: 600; color: #d32f2f; }
+.time { font-size: 14px; color: #333; text-align: right; }
+
+.gbtn{
+  padding:8px 14px;
+  border-radius:20px;
+  border:none;
+  background:#e0e0e0;
+  cursor:pointer;
+  font-weight:600
+}
+.gbtn.active{background:#d32f2f;color:#fff}
+
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 40px;
+}
+footer strong { color: #4caf50; }
+
+/* Mobile Responsive */
 @media (max-width: 900px) {
-  section[style*="grid-template-columns"] {
-    grid-template-columns: 1fr;
+  .intro {
+    grid-template-columns: 1fr !important;
+  }
+  .intro-video {
+    order: 2; /* video goes below */
+  }
+  .intro-text {
+    order: 1;
   }
 }
-    }
-    .gbtn{padding:8px 14px;border-radius:20px;border:none;background:#e0e0e0;cursor:pointer;font-weight:600}
-  .gbtn.active{background:#d32f2f;color:#fff}
+}
+@media (max-width: 600px) {
+  header h1 { font-size: 24px; }
+  .row { flex-direction: column; align-items: flex-start; }
+  .time { text-align: left; }
+  select { width: 100%; }
+}
+@media print {
+  header, iframe, button, select, .gbtn, a[href*="wa.me"] { display:none !important; }
+  body { background:#fff; }
+  .card { box-shadow:none; page-break-inside:avoid; }
+}
 </style>
 </head>
 <body>
@@ -106,9 +106,9 @@
 
 
 <!-- Intro + YouTube Section -->
-<section style="max-width:1200px;margin:30px auto;padding:0 15px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center;">
+<section class="intro" style="max-width:1200px;margin:30px auto;padding:0 15px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center;">
   <!-- Left Info -->
-  <div style="background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+  <div class="intro-text" style="background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 20px rgba(0,0,0,0.1);">
     <h2 style="margin-top:0;color:#d32f2f;">2026 ICT පන්තිය</h2>
     <p style="line-height:1.7;color:#333;">
       Grade 06 සිට Grade 11 දක්වා ICT විෂය සම්පූර්ණ syllabus එක
@@ -123,9 +123,14 @@
   </div>
 
   <!-- Right Video -->
-  <div style="position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.15);">
+  <div class="intro-video" style="position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.15);">
     <iframe src="https://www.youtube.com/embed/ZisWtlEHwVQ" title="ICT Class Introduction" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe>
   </div>
+</section>
+
+<!-- Filters + Print -->
+<section style="max-width:1200px;margin:10px auto 0;padding:0 15px;display:flex;justify-content:flex-end;">
+  <button onclick="printTimetable()" style="padding:10px 18px;border:none;border-radius:20px;background:#1976d2;color:#fff;font-weight:600;cursor:pointer;">🖨️ Print / PDF</button>
 </section>
 
 <!-- Filters -->
@@ -227,6 +232,9 @@
       if (activeGrade && gradeText !== activeGrade) show = false;
       row.style.display = show ? 'flex' : 'none';
     });
+  }
+  function printTimetable() {
+    window.print();
   }
 </script>
 
