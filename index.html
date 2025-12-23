@@ -6,11 +6,38 @@
   <title>2026 ICT Timetable</title>
   <link rel="icon" type="image/png" href="tabicon.png">
   <style>
+
+html {
+            scroll-behavior: smooth;
+      }
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: #f2f2f2;
-}
+
+  margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            
+            /* Background Image එක සැකසීම */
+            background-image: url('B7.jpg'); /* ඔබේ පින්තූරයේ නම මෙතැනට දෙන්න */
+            background-attachment: fixed;   /* පින්තූරය එක තැනක රඳවා තබයි */
+            background-position: center;    /* පින්තූරය මැදට ගනී */
+            background-repeat: no-repeat;   /* පින්තූරය නැවත නැවත පෙන්වීම නවත්වයි */
+            background-size: cover;         /* මුළු තිරයම පිරෙන සේ පින්තූරය සකසයි */
+      }
+
+/* පින්තූරය මත අකුරු හොඳින් පෙනීමට අමතර සැකසුමක් */
+        .content {
+            height: 2000px; /* පිටුව පහළට යාමට හැකි වන සේ වැඩි උසක් ලබා දී ඇත */
+            background-color: rgba(255, 255, 255, 0.7); /* අකුරු යටින් ලා පැහැති ස්ථරයක් */
+            margin: 50px auto;
+            padding: 20px;
+            width: 80%;
+            border-radius: 15px;
+        }
+
 header {
   background: linear-gradient(135deg, #d32f2f, #b71c1c);
   color: #fff;
@@ -105,7 +132,7 @@ footer strong { color: #4caf50; }
 </header>
 
 <!-- Poster Image Section -->
-<section style="max-width:1200px;margin:20px auto;padding:0 15px;">
+<section style="max-width:1200px;margin:20px auto;padding:0 15px;" >
   <img src="2026 NEW Timetable.jpg" alt="2026 GK ICT Class Poster" style="width:100%;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,0.15);" />
 </section>
 
@@ -114,7 +141,7 @@ footer strong { color: #4caf50; }
 <!-- Intro + YouTube Section -->
 <section class="intro" style="max-width:1200px;margin:30px auto;padding:0 15px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center;">
   <!-- Left Info -->
-  <div class="intro-text" style="background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+  <div class="intro-text" style="background:#fff;border-radius:16px;padding:25px;box-shadow:0 8px 20px rgba(0,0,0,0.1); " class="content">
     <h2 style="margin-top:0;color:#d32f2f;">2026 අපේ ICT පන්තියේ සුවිශේෂීතා </h2>
     <p style="line-height:1.7;color:#333;">
       Grade 06 සිට Grade 11 දක්වා ICT විෂය සම්පූර්ණ Syllabus එක
