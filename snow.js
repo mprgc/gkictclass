@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         snow.className = "snow";
 
         const flake = new Image();
-        flake.src = "../../img/snow.png"; // 👈 ඔබේ snowflake image path
+        flake.src = "snow.png"; // 👈 ඔබේ snowflake image path
         flake.className = "flake";
 
         const size = 5 + Math.random() * 20;
@@ -87,3 +87,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // auto start
     toggleSnow();
 });
+
