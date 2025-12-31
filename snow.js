@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     snowContainer.className = "snow-container";
     document.body.appendChild(snowContainer);
 
-    let interval, active = false;
+    let interval, active = true;
 
     function createSnow() {
         const snow = document.createElement("div");
@@ -87,4 +87,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // auto start
     toggleSnow();
 });
+
 
